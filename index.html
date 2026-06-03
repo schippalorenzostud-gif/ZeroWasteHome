@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZeroWasteHome | Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<nav>
+    <div class="logo">ZeroWasteHome</div>
+    <div id="nav-controls" style="display: flex; align-items: center; gap: 15px;">
+        <a href="premium.html" class="btn-primary" style="padding: 10px 20px; font-size: 0.8rem;">PROVA PREMIUM</a>
+        <a href="login.html" id="login-link" class="cta-small" style="background: rgba(255,255,255,0.1); border: 1px solid white;">ACCEDI</a>
+    </div>
+</nav>
+
+<header style="height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=1000'); background-size: cover;">
+    <div class="container">
+        <h1 style="font-size: 3.5rem; margin-bottom: 10px;">ZeroWasteHome</h1>
+        <p style="font-size: 1.2rem; opacity: 0.8; margin-bottom: 30px;">Gestisci la tua dispensa, abbatti gli sprechi.</p>
+        <a href="scansione.html" class="btn-primary">SCANSIONA ORA</a>
+    </div>
+</header>
+
+<section class="container">
+    <div class="features">
+        <a href="scansione.html" class="card" style="text-decoration: none; color: white;">
+            <div class="icon">🔍</div>
+            <h3>Scansione Smart</h3>
+            <p>Aggiungi prodotti col QR</p>
+        </a>
+        <a href="ricette.html" class="card" style="text-decoration: none; color: white;">
+            <div class="icon">🍲</div>
+            <h3>Ricette Benedetta</h3>
+            <p>Cosa cucinare oggi?</p>
+        </a>
+        <a href="dispensa.html" class="card" style="text-decoration: none; color: white;">
+            <div class="icon">☁️</div>
+            <h3>Dispensa Cloud</h3>
+            <p>Guarda cosa hai in frigo</p>
+        </a>
+    </div>
+</section>
+
+<script>
+    const user = localStorage.getItem('utenteEmail');
+    if(user) {
+        const loginLink = document.getElementById('login-link');
+        loginLink.innerHTML = "ESCI (" + user.split('@')[0].toUpperCase() + ")";
+        loginLink.style.background = "#ff4757";
+        loginLink.href = "#";
+        loginLink.onclick = (e) => {
+            e.preventDefault();
+            if(confirm("Vuoi uscire dal profilo?")) {
+                localStorage.removeItem('utenteEmail');
+                location.reload();
+            }
+        };
+    }
+</script>
+
+</body>
+</html>

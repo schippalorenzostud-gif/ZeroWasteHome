@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Ricette | ZeroWasteHome</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+  <div class="logo">ZeroWasteHome</div>
+  <div style="display: flex; align-items: center; gap: 15px;">
+    <a href="index.html" style="color: white; text-decoration: none; font-size: 0.8rem;">HOME</a>
+    <span id="user-display" style="color: var(--primary); font-weight: bold; font-size: 0.8rem;"></span>
+  </div>
+</nav>
+
+<div class="container">
+  <h1 class="highlight">Ricette Anti-Spreco</h1>
+  <div id="ben-grid" class="features"></div>
+</div>
+
+<script>
+    const u = localStorage.getItem('utenteEmail');
+    if(u) document.getElementById('user-display').innerText = "👤 " + u.split('@')[0].toUpperCase();
+
+    const dati = JSON.parse(localStorage.getItem('dispensa')) || [];
+    document.getElementById('ben-grid').innerHTML = dati.length ? dati.map(item => `
+        <div class="card" style="border-color: #e67e22;">
+            <span style="color: #e67e22; font-weight: bold; font-size: 0.7rem;">RICETTA BENEDETTA ROSSI</span>
+            <h3 style="margin: 15px 0;">${item.nome}</h3>
+            <a href="https://www.fattoincasadabenedetta.it/?s=${item.nome}" target="_blank" class="btn-primary" style="background: #e67e22; font-size: 0.8rem;">CERCA RICETTA</a>
+        </div>`).join('') : "<div class='card' style='grid-column:1/-1'>Scansiona un ingrediente per vedere le ricette!</div>";
+</script>
+</body>
+</html>

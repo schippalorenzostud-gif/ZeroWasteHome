@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Premium | ZeroWasteHome</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="sub-page">
+<nav>
+  <div class="logo">ZeroWasteHome</div>
+  <div style="display: flex; gap: 15px; align-items: center;">
+    <a href="index.html" style="color: white; text-decoration: none; font-size: 0.8rem;">HOME</a>
+    <span id="user-display" style="color: var(--primary); font-weight: bold; font-size: 0.8rem;"></span>
+  </div>
+</nav>
+
+<div class="container">
+  <h1 class="highlight">Passa a Premium</h1>
+  <div class="price-card">
+    <div class="price-tag">€3.99<span style="font-size: 1.2rem; opacity: 0.5;">/mese</span></div>
+    <ul class="benefit-list">
+      <li>Accesso illimitato al Ricettario IA</li>
+      <li>Analisi dei Macronutrienti</li>
+      <li>Notifiche push intelligenti</li>
+      <li>Dieta personalizzata</li>
+    </ul>
+    <form onsubmit="alert('Pagamento effettuato con successo!'); window.location.href='index.html'; return false;">
+      <input type="text" placeholder="Numero Carta" required style="width:100%; padding:12px; margin-bottom:15px; border-radius:8px; background:rgba(0,0,0,0.2); border:1px solid var(--glass-border); color:white;">
+      <button type="submit" class="btn-primary" style="width: 100%; border: none;">ATTIVA ORA</button>
+    </form>
+  </div>
+</div>
+
+<script>
+        const u = localStorage.getItem('utenteEmail');
+        if(u) document.getElementById('user-display').innerText = "👤 " + u.split('@')[0].toUpperCase();
+    </script>
+</body>
+</html>

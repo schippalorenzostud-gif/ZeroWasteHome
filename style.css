@@ -1,0 +1,447 @@
+:root {
+
+    /* Variabili globali CSS utilizzabili ovunque nel file */
+
+    --primary: #2ecc71; /* Colore principale verde */
+
+    --secondary: #27ae60; /* Verde secondario più scuro */
+
+    --accent: #f1c40f; /* Colore accent giallo/oro */
+
+    --dark-bg: #0f172a; /* Sfondo scuro principale */
+
+    --glass-bg: rgba(255, 255, 255, 0.07);
+    /* Sfondo trasparente effetto vetro */
+
+    --glass-border: rgba(255, 255, 255, 0.15);
+    /* Bordo semi-trasparente glassmorphism */
+
+}
+
+
+
+/* Seleziona tutti gli elementi della pagina */
+* {
+
+    margin: 0;
+    /* Rimuove margini predefiniti */
+
+    padding: 0;
+    /* Rimuove padding predefiniti */
+
+    box-sizing: border-box;
+    /* Include bordo e padding nelle dimensioni */
+
+    font-family: 'Poppins', sans-serif;
+    /* Font globale */
+
+}
+
+
+
+body {
+
+    background: radial-gradient(circle at top left, #1e293b, #0f172a);
+    /* Sfondo con gradiente radiale */
+
+    color: #f8fafc;
+    /* Colore testo quasi bianco */
+
+    min-height: 100vh;
+    /* Altezza minima = altezza schermo */
+
+    overflow-x: hidden;
+    /* Nasconde scroll orizzontale */
+
+}
+
+
+
+
+/* NAVIGAZIONE */
+
+
+nav {
+
+    display: flex;
+    /* Attiva Flexbox */
+
+    justify-content: space-between;
+    /* Spinge gli elementi agli estremi */
+
+    align-items: center;
+    /* Allinea verticalmente */
+
+    padding: 20px 8%;
+    /* Spazio interno */
+
+    background: rgba(15, 23, 42, 0.9);
+    /* Sfondo semi-trasparente */
+
+    backdrop-filter: blur(15px);
+    /* Sfoca lo sfondo dietro */
+
+    position: fixed;
+    /* Navbar fissa */
+
+    width: 100%;
+    /* Larghezza completa */
+
+    top: 0;
+    /* Attaccata in alto */
+
+    z-index: 1000;
+    /* Sta sopra agli altri elementi */
+
+    border-bottom: 1px solid var(--glass-border);
+    /* Bordo inferiore trasparente */
+
+}
+
+
+
+/* Logo sito */
+.logo {
+
+    font-size: 1.5rem;
+    /* Dimensione testo */
+
+    font-weight: 800;
+    /* Molto grassetto */
+
+    color: var(--primary);
+    /* Colore verde principale */
+
+}
+
+
+
+
+/* CONTAINER PRINCIPALE */
+
+
+.container {
+
+    padding: 120px 8% 50px;
+    /* Spazi interni:
+       120px sopra
+       8% laterale
+       50px sotto */
+
+    max-width: 1200px;
+    /* Larghezza massima */
+
+    margin: 0 auto;
+    /* Centra il contenitore */
+
+}
+
+
+
+/* Titoli evidenziati */
+.highlight {
+
+    color: var(--primary);
+    /* Verde principale */
+
+    margin-bottom: 20px;
+    /* Spazio sotto */
+
+    text-align: center;
+    /* Testo centrato */
+
+}
+
+
+
+
+/* CARDS */
+
+
+.features {
+
+    display: grid;
+    /* Usa CSS Grid */
+
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* Colonne responsive:
+       minimo 280px
+       massimo spazio disponibile */
+
+    gap: 30px;
+    /* Spazio tra card */
+
+    margin-top: 40px;
+    /* Margine sopra */
+
+}
+
+
+
+.card {
+
+    background: var(--glass-bg);
+    /* Sfondo effetto vetro */
+
+    border: 1px solid var(--glass-border);
+    /* Bordo semi-trasparente */
+
+    padding: 30px;
+    /* Spazio interno */
+
+    border-radius: 20px;
+    /* Angoli arrotondati */
+
+    backdrop-filter: blur(10px);
+    /* Sfocatura sfondo */
+
+    transition: 0.3s;
+    /* Animazioni fluide */
+
+    text-align: center;
+    /* Contenuto centrato */
+
+    position: relative;
+    /* Permette posizionamenti assoluti interni */
+
+}
+
+
+
+/* Hover card */
+.card:hover {
+
+    transform: translateY(-5px);
+    /* Solleva la card */
+
+    background: rgba(255,255,255,0.12);
+    /* Sfondo più luminoso */
+
+}
+
+
+
+/* Icone */
+.icon {
+
+    font-size: 2.5rem;
+    /* Icona grande */
+
+    margin-bottom: 15px;
+    /* Spazio sotto */
+
+}
+
+
+
+/* BOTTONI */
+
+
+.btn-primary, .cta-small {
+
+    background: var(--primary);
+    /* Sfondo verde */
+
+    color: white;
+    /* Testo bianco */
+
+    text-decoration: none;
+    /* Rimuove sottolineatura link */
+
+    padding: 12px 25px;
+    /* Dimensioni bottone */
+
+    border-radius: 50px;
+    /* Forma pillola */
+
+    font-weight: 600;
+    /* Semi-grassetto */
+
+    display: inline-block;
+    /* Permette padding corretto */
+
+    transition: 0.3s;
+    /* Animazioni fluide */
+
+    border: none;
+    /* Nessun bordo */
+
+    cursor: pointer;
+    /* Mano al passaggio mouse */
+
+}
+
+
+
+/* Hover bottone */
+.btn-primary:hover {
+
+    background: var(--secondary);
+    /* Verde più scuro */
+
+    box-shadow: 0 0 15px var(--primary);
+    /* Effetto glow */
+
+}
+
+
+
+
+/* SCANNER */
+
+
+.camera-box {
+
+    width: 100%;
+    /* Larghezza completa */
+
+    height: 250px;
+    /* Altezza fissa */
+
+    background: #000;
+    /* Sfondo nero */
+
+    border-radius: 15px;
+    /* Angoli arrotondati */
+
+    margin: 20px 0;
+    /* Margini verticali */
+
+    overflow: hidden;
+    /* Nasconde elementi fuori area */
+
+    position: relative;
+    /* Base per elementi assoluti */
+
+    border: 2px solid var(--primary);
+    /* Bordo verde */
+
+}
+
+
+
+/* Laser scanner */
+.laser {
+
+    position: absolute;
+    /* Posizionamento libero */
+
+    width: 100%;
+    /* Occupa tutta la larghezza */
+
+    height: 3px;
+    /* Spessore linea */
+
+    background: var(--primary);
+    /* Colore verde */
+
+    box-shadow: 0 0 15px var(--primary);
+    /* Effetto luminoso */
+
+    animation: scan 2s infinite linear;
+    /* Animazione continua */
+
+}
+
+
+
+/* Animazione laser */
+@keyframes scan {
+
+    0% {
+        top:0;
+        /* Parte dall’alto */
+    }
+
+    100% {
+        top:100%;
+        /* Arriva in basso */
+    }
+
+}
+
+
+/* PREMIUM CARD */
+
+.price-card {
+
+    background: linear-gradient(145deg, #1e293b, #0f172a);
+    /* Gradiente diagonale */
+
+    max-width: 450px;
+    /* Larghezza massima */
+
+    margin: 0 auto;
+    /* Centra la card */
+
+    padding: 50px;
+    /* Spazio interno */
+
+    border-radius: 30px;
+    /* Angoli molto arrotondati */
+
+    border: 1px solid var(--primary);
+    /* Bordo verde */
+
+    text-align: center;
+    /* Contenuto centrato */
+
+}
+
+
+
+/* Prezzo */
+.price-tag {
+
+    font-size: 3.5rem;
+    /* Testo molto grande */
+
+    font-weight: 800;
+    /* Molto grassetto */
+
+    margin-bottom: 20px;
+    /* Spazio sotto */
+
+}
+
+
+
+/* Lista benefici */
+.benefit-list {
+
+    list-style: none;
+    /* Rimuove pallini */
+
+    text-align: left;
+    /* Testo a sinistra */
+
+    margin: 30px 0;
+    /* Margini verticali */
+
+}
+
+
+
+/* Elementi lista */
+.benefit-list li {
+
+    margin-bottom: 15px;
+    /* Spazio tra elementi */
+
+}
+
+
+
+/* Aggiunge automaticamente ✓ prima di ogni elemento */
+.benefit-list li::before {
+
+    content: "✓ ";
+    /* Simbolo check */
+
+    color: var(--primary);
+    /* Verde */
+
+    font-weight: bold;
+    /* Grassetto */
+
+}

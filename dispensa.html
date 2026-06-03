@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Dispensa | ZeroWasteHome</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+    <div class="logo">ZeroWasteHome</div>
+    <div style="display: flex; align-items: center; gap: 15px;">
+        <a href="index.html" style="color: white; text-decoration: none; font-size: 0.8rem;">HOME</a>
+        <span id="user-display" style="color: var(--primary); font-weight: bold; font-size: 0.8rem;"></span>
+    </div>
+</nav>
+
+<div class="container">
+    <h1 class="highlight">Dispensa Cloud</h1>
+    <div style="text-align: center; margin-bottom: 20px;">
+        <button onclick="localStorage.removeItem('dispensa'); location.reload();" style="background: none; border: 1px solid #ff4757; color: #ff4757; padding: 8px 15px; border-radius: 50px; cursor: pointer; font-size: 0.8rem;">SVUOTA TUTTO</button>
+    </div>
+    <div id="grid" class="features"></div>
+</div>
+
+<script>
+    const u = localStorage.getItem('utenteEmail');
+    if(u) document.getElementById('user-display').innerText = "👤 " + u.split('@')[0].toUpperCase();
+
+    const grid = document.getElementById('grid');
+    const dati = JSON.parse(localStorage.getItem('dispensa')) || [];
+    grid.innerHTML = dati.length ? dati.map((item, i) => `
+        <div class="card">
+            <div class="icon">🍎</div>
+            <h3>${item.nome}</h3>
+            <p>Scade il: <b style="color:var(--accent)">${item.data}</b></p>
+            <button onclick="let d=JSON.parse(localStorage.getItem('dispensa')); d.splice(${i},1); localStorage.setItem('dispensa', JSON.stringify(d)); location.reload();" style="background:#ff4757; color:white; border:none; padding:8px 12px; border-radius:8px; margin-top:15px; cursor:pointer;">ELIMINA</button>
+        </div>`).join('') : "<div class='card' style='grid-column:1/-1'>Nessun prodotto in dispensa</div>";
+</script>
+</body>
+</html>

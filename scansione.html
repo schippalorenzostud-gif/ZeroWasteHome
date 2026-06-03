@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Scanner | ZeroWasteHome</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+  <div class="logo">ZeroWasteHome</div>
+  <div style="display: flex; align-items: center; gap: 15px;">
+    <a href="index.html" style="color: white; text-decoration: none; font-size: 0.8rem;">HOME</a>
+    <span id="user-display" style="color: var(--primary); font-weight: bold; font-size: 0.8rem;"></span>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="card" style="max-width: 500px; margin: 0 auto;">
+    <h2 class="highlight">Nuovo Prodotto</h2>
+    <div class="camera-box"><div class="laser"></div></div>
+    <form onsubmit="let d=JSON.parse(localStorage.getItem('dispensa'))||[]; d.push({nome:document.getElementById('n').value, data:document.getElementById('t').value}); localStorage.setItem('dispensa', JSON.stringify(d)); window.location.href='dispensa.html'; return false;">
+      <input type="text" id="n" placeholder="Nome Ingrediente" required style="width:100%; padding:12px; margin-bottom:12px; border-radius:8px; border:none;">
+      <input type="date" id="t" required style="width:100%; padding:12px; margin-bottom:20px; border-radius:8px; border:none;">
+      <button type="submit" class="btn-primary" style="width:100%; border:none;">AGGIUNGI ORA</button>
+    </form>
+  </div>
+</div>
+
+<script>
+    const u = localStorage.getItem('utenteEmail');
+    if(u) document.getElementById('user-display').innerText = "👤 " + u.split('@')[0].toUpperCase();
+</script>
+</body>
+</html>

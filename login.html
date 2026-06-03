@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Accedi | ZeroWasteHome</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+  <div class="logo">ZeroWasteHome</div>
+  <a href="index.html" class="cta-small">Torna alla Home</a>
+</nav>
+
+<div class="container" style="max-width: 450px; margin-top: 50px;">
+  <div class="card">
+    <h2 class="highlight">Accedi o Registrati</h2>
+    <p style="margin-bottom: 25px; font-size: 0.9rem; opacity: 0.7;">Entra nella tua cucina intelligente</p>
+    <form onsubmit="localStorage.setItem('utenteEmail', document.getElementById('email').value); window.location.href='index.html'; return false;">
+      <input type="email" id="email" placeholder="La tua Email" required style="width:100%; padding:15px; margin-bottom:15px; border-radius:10px; border:1px solid var(--glass-border); background:rgba(0,0,0,0.2); color:white; outline:none;">
+      <input type="password" placeholder="Scegli una Password" required style="width:100%; padding:15px; margin-bottom:25px; border-radius:10px; border:1px solid var(--glass-border); background:rgba(0,0,0,0.2); color:white; outline:none;">
+      <button type="submit" class="btn-primary" style="width: 100%; border: none;">ENTRA / REGISTRATI</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>
